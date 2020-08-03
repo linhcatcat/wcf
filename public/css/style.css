@@ -78,6 +78,7 @@ h3.title {
 .winco-food {
 	margin-bottom: 30px;
 }
+.winco-food .title h1,
 .winco-food .title h3,
 .winco-food .title h2 {
 	margin-bottom: 20px;
@@ -94,6 +95,7 @@ h3.title {
 	padding-bottom: 5px;
 }
 
+.winco-food .title h1:before,
 .winco-food .title h2:before {
 	/*content: "";*/
 	position: absolute;
