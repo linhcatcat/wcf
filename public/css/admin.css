@@ -80,3 +80,8 @@
 }
 
 .dd-hover > .dd-handle { background: #2ea8e5 !important; }
+
+.vich-image img {
+    max-width: 545px;
+    height: auto;
+}

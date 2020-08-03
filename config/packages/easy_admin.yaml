@@ -179,3 +179,34 @@ easy_admin:
         actions: ['edit', '-delete']
         fields:
           - { property: 'content', type: 'fos_ckeditor'}
+    NutritionCategory:
+      class: App\Entity\NutritionCategory
+      form:
+        fields:
+          - { property: 'name', type: 'text' }
+          - { property: 'description', type: 'textarea' }
+          - { property: 'nutritionInformations', type_options: { multiple: true, by_reference: false } }
+      list:
+        fields:
+          - { property: 'id', type: 'text'}
+          - { property: 'name', type: 'text'}
+          - { property: 'description', type: 'textarea' }
+          - { property: 'nutritionInformations', type_options: { multiple: true, by_reference: false } }
+    NutritionInfo:
+      class: App\Entity\NutritionInformation
+      form:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'category', type_options: { 'by_reference': true } }
+          - { property: 'imageFile', type: 'vich_image' }
+          - { property: 'summary', type: 'fos_ckeditor' }
+          - { 
+              property: 'content', 
+              type: 'fos_ckeditor', 
+              type_options: { 'config': { 'toolbar': 'full', 'uiColor': '#e2e2e2' } }
+            }
+      list:
+        fields:
+          - { property: 'image', template: 'vich_uploader_image.html.twig' }
+          - { property: 'title', type: 'text'}
+          - { property: 'category', type_options: { 'by_reference': false } }
