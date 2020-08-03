@@ -1,0 +1,33 @@
+<footer class="winco">
+	<div class="footer-top">
+		<div class="container">
+			<div class="row">
+				{% for m in menus %}
+				<div class="col-md-3">
+					<div class="winco-title">
+						<h4>{{m.name}}</h4>
+					</div>
+					{{ render(controller('App\\Controller\\MenuFooterController::menuFooterSub', {parentId: m.id})) }}
+				</div>
+				{% endfor %}
+				<div class="col-md-3">
+					<div class="winco-title">
+						<h4>Kênh WincoFood</h4>
+					</div>
+					<ul>
+						<iframe width="360" class="kenh-winco-food" src="https://www.youtube.com/embed/VHhqeDEUgFY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copy-right">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="center">Copyright © 2020 WincoFood Corp. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

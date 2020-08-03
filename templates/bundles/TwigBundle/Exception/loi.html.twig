@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    {% if code == 403 %}
+ 		Lỗi {{code}}
+ 	{% else %}
+ 		Lỗi {{code}}
+ 	{% endif %}
+{% endblock %}
+{% block body %}
+ 	{% if code == 403 %}
+ 		<h1>Bạn không có quyền truy cập vào trang này</h1>
+ 	{% elseif code == 404 %}
+ 		<h1>Trang này không tồn tại!</h1>
+ 	{% else %}
+ 		<h1>{{message}}</h1>
+ 	{% endif %}
+{% endblock %}

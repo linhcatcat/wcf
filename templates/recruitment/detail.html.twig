@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{recruitment.title}}{% endblock %}
+
+{% block body %}
+	{% if recruitment %}
+	<div class="wrap-container">
+		<div class="container">
+			<div class="winco-food detail recruitment">
+				<div class="title">
+					<h2>{{recruitment.title}}</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						{{recruitment.description|raw}}
+					</div>
+				</div>
+			</div>
+			{{ render(controller('App\\Controller\\RecruitmentController::relate', {recruitmentId: recruitment.id})) }}
+		</div>
+	</div>
+	{% endif %}
+{% endblock %}

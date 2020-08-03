@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Thông báo{% endblock %}
+
+{% block body %}
+	<div class="wrap-container">
+		<div class="container">
+			<div class="winco-food list product">
+				<div class="title">
+					<h2>Thông báo</h2>
+				</div>
+				{% for n in notices %}
+				<div class="row">
+					<div class="col-md-8">
+						<div class="list-item">
+							<div class="row">
+								<div class="col-md-4 thumb">
+									<a href="/thong-bao/chi-tiet/{{n.id}}/{{n.slug}}"><img src="{{ vich_uploader_asset(n, 'imageFile') }}"></a>
+								</div>
+								<div class="col-md-8">
+									<h3 class="title"><a href="/thong-bao/chi-tiet/{{n.id}}/{{n.slug}}">{{n.title}}</a></h3>
+									{{(n.content|u.truncate(450, '...'))|raw}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				<div>
+					{{ knp_pagination_render(notices) }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

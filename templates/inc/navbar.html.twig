@@ -1,0 +1,42 @@
+<nav class="navbar navbar-light navbar-expand-lg mainmenu">
+  <div class="container">
+    <a href="/" class="navbar-brand">
+      <img class="logo" src="{{ asset('images/logo.png') }}">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto">
+            {% for m in menus %}
+                {% if m.parent == null %}
+                    {% if m.checkParent %}
+                        <li class="dropdown">
+                            {% if currentPath == m.link %}
+                            <a class="dropdown-toggle active" href="{{m.link}}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">{{m.name}}</a>
+                            {% else %}
+                            <a class="dropdown-toggle" href="{{m.link}}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">{{m.name}}</a>
+                            {% endif %}
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for m1 in menus %}
+                                    {% if m1.parent %}
+                                        {% if m1.parent.id == m.id %}
+                                        <li><a href="{{m1.link}}">{{m1.name}}</a></li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        {% if currentPath == m.link %}
+                            <li><a class="active" href="{{m.link}}">{{m.name}}</a></li>
+                        {% else %}
+                            <li><a href="{{m.link}}">{{m.name}}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+  </div>
+</nav>

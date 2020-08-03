@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Trang chủ{% endblock %}
+
+{% block body %}
+	{% if notice %}
+	<div class="wrap-container notice">
+		<div class="container">
+			<div class="winco-food">
+				<div class="winco-food-inner">
+					<div class="title">
+						<h2>{{notice.title}}</h2>
+					</div>
+					<div class="ct">
+						<div class="row">
+							<div class="col-md-4 image">
+								<img src="{{ vich_uploader_asset(notice, 'imageFile') }}">
+							</div>
+							<div class="col-md-8 summary">
+								{{notice.content|raw}}
+								<div class="go-detail">
+									<a href="/thong-bao">Xem thêm</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	{% if intro %}
+	<div class="wrap-container intro">
+		<div class="container">
+			<div class="winco-food">
+				<div class="winco-food-inner">
+					<div class="title">
+						<h2>{{intro.title}}</h2>
+					</div>
+					<div class="ct">
+						<div class="row">
+							<div class="col-md-4 image">
+								<img src="{{ vich_uploader_asset(intro, 'imageFile') }}">
+							</div>
+							<div class="col-md-8 summary">
+								{{intro.summary|raw}}
+								<div class="go-detail">
+									<a href="/gioi-thieu">Xem chi tiết</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	<div class="wrap-container product">
+		<div class="container">
+			<div class="winco-food">
+				<div class="row">
+					<div class="col-md-4 image">
+						<div class="title">
+							<h2>{{product.title}}</h2>
+						</div>
+						<img src="{{ vich_uploader_asset(product, 'imageFile') }}">
+					</div>
+					<div class="col-md-8 summary">
+						<nav>
+							<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+								{% for c in categories %}
+									{% if loop.index == 1 %}
+							  			<a class="nav-item nav-link active" id="nav-home-tab-{{c.id}}" data-toggle="tab" href="#nav-home-{{c.id}}" role="tab" aria-controls="nav-home-{{c.id}}" aria-selected="true">{{c.name}}</a>
+							  		{% else %}
+							  			<a class="nav-item nav-link" id="nav-home-tab-{{c.id}}" data-toggle="tab" href="#nav-home-{{c.id}}" role="tab" aria-controls="nav-home-{{c.id}}" aria-selected="false">{{c.name}}</a>
+							  		{% endif %}
+								{% endfor %}
+							</div>
+						  </nav>
+						<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+							{% for c in categories %}
+								{% if loop.index == 1 %}
+									<div class="tab-pane fade show active" id="nav-home-{{c.id}}" role="tabpanel" aria-labelledby="nav-home-tab-{{c.id}}">
+										{{ render(controller('App\\Controller\\HomeController::productByCategory', {categoryId: c.id})) }}
+										<div class="go-detail"><a href="/san-pham/danh-muc/{{c.id}}/{{c.slug}}">Xem thêm</a></div>
+									</div>
+								{% else %}
+									<div class="tab-pane fade" id="nav-home-{{c.id}}" role="tabpanel" aria-labelledby="nav-home-tab-{{c.id}}">
+										{{ render(controller('App\\Controller\\HomeController::productByCategory', {categoryId: c.id})) }}
+										<div class="go-detail"><a href="/san-pham/danh-muc/{{c.id}}/{{c.slug}}">Xem thêm</a></div>
+									</div>
+								{% endif %}
+							{% endfor %}
+						  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if distribution %}
+	<div class="wrap-container distribution">
+		<div class="container">
+			<div class="winco-food ">
+				<div class="winco-food-inner">
+					<div class="title">
+						<h2>{{distribution.title}}</h2>
+					</div>
+					<div class="ct">
+						<div class="row">
+							<div class="col-md-4 image">
+								<img src="{{ vich_uploader_asset(distribution, 'imageFile') }}">
+							</div>
+							<div class="col-md-8 summary">
+								{{distribution.summary|raw}}
+								<div class="go-detail">
+									<a href="/he-thong-phan-phoi">Xem chi tiết</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+{% endblock %}

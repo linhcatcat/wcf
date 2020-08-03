@@ -1,0 +1,265 @@
+@media (min-width: 1561px) {
+	.container, .container-sm, .container-md, .container-lg, .container-xl {
+		max-width: 1560px;
+	}
+}
+
+.thumb img {
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+}
+
+h3.title {
+	font-weight: 700;
+}
+
+.list .list-item {
+	border-bottom: 1px dashed #2780E3;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.register .wrap-container .container,
+.app_login .wrap-container .container {
+	max-width: 560px;
+}
+
+.blb {
+	border-bottom: 1px dashed #2780E3;
+}
+
+.product_detail .detail {
+	
+}
+
+.carousel-indicators li{
+	background-color: #1565C0;
+}
+
+.wrap-container {
+	margin-top: 56px;
+	padding-bottom: 10px;
+	padding-top: 30px;
+}
+
+.product .winco-food {
+	margin-bottom: 0;
+}
+
+.product .tab-item .summary {
+	text-align: justify;
+	padding-right: 30px;
+}
+
+.product .tab-item .summary h3 {
+	color: #2780E3;
+	font-weight: 700;
+}
+
+.home_page .wrap-container {
+	padding-top: 20px;
+}
+
+.home_page .wrap-container {
+	margin-top: 0;
+}
+
+.home_page .wrap-container.product {
+	margin-top: 0;
+}
+
+.home_page .distribution,
+.home_page .intro {
+	background-image: url('../images/bg-block.png');
+	background-size: 100% 100%;
+}
+
+.winco-food {
+	margin-bottom: 30px;
+}
+.winco-food .title h3,
+.winco-food .title h2 {
+	margin-bottom: 20px;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+	position: relative;
+	overflow: hidden;
+	color: #fff;
+	font-weight: 700;
+	text-shadow: 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3, 0 0 4px #2780E3;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
+.winco-food .title h2:before {
+	/*content: "";*/
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #2780E3;
+	height: 2px;
+}
+
+.winco-food .image img {
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+}
+
+.winco-food .go-detail {
+	position: relative;
+}
+
+.winco-food .go-detail:after {
+	content: "";
+	position: absolute;
+	width: 36%;
+	height: 2px;
+	background: #2780E3;
+	bottom: 0;
+	left: 0;
+}
+
+.winco-food .go-detail:before {
+	content: "";
+	position: absolute;
+	width: 36%;
+	height: 2px;
+	background: #2780E3;
+	bottom: 0;
+	right: 0;
+}
+
+.winco-food .go-detail a {
+	font-size: 18px;
+	display: block;
+	color: #2780E3;
+	padding-top: 5px;
+	text-align: center;
+	width: 165px;
+	margin: auto;
+	font-weight: 700;
+}
+
+.product .summary .tab-item {
+	margin-bottom: 15px;
+}
+
+.product .summary .tab-item img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	max-height: 240px;
+}
+
+footer.wrap-container {
+	margin-top: 0;
+	margin-bottom: 0 !important;
+}
+
+.carousel-item {
+	max-height: 700px;
+	background: no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.slide-show {
+	margin-top: 56px;
+}
+
+.carousel-item img {
+	width: 100%;
+	height: auto;
+}
+
+.custom-link {
+	position: absolute;
+	z-index: 20;
+	display: block;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.distribution .winco-food-inner .ct,
+.intro .winco-food-inner .ct {
+	background-color: #fff;
+}
+
+.distribution .winco-food-inner .ct .summary,
+.intro .winco-food-inner .ct .summary {
+	padding-top: 20px;
+	padding-right: 30px;
+}
+
+footer {
+	font-weight: 700;
+	padding-top: 30px;
+}
+
+.footer-top .winco-title h4 {
+	font-weight: 700;
+	color: #2780E3;
+	border-bottom: 1px solid #2780E3;
+}
+
+.footer-top ul {
+	padding: 0;
+}
+
+.footer-top ul li {
+	list-style: none;
+}
+
+.footer-top ul li a {
+	text-decoration: none;
+}
+
+.copy-right {
+	background-color: #2780E3;
+}
+
+.copy-right p {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #fff;
+	text-align: center;
+}
+
+.mt20 {
+	margin-top: 20px;
+}
+
+.notice .title h2 {
+    animation-duration: 1200ms;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    -webkit-animation:blink 1200ms infinite; /* Safari and Chrome */
+}
+
+@keyframes blink {
+    from {
+        color: white;
+    }
+    to {
+        color: red;
+    }
+}
+@-webkit-keyframes blink {
+    from {
+        color: white;
+    }
+    to {
+        color: red;
+    }
+}

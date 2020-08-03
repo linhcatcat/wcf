@@ -1,0 +1,181 @@
+easy_admin:
+  site_name: 'WincoFood'
+  formats:
+    datetime: 'd-m-Y h:i'
+  design:
+    #rtl: false
+    assets:
+      css:
+        - 'css/admin.css'
+    form_theme:
+      - '@EasyAdmin/form/bootstrap_4.html.twig'
+      - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+      - '@VichUploader/Form/fields.html.twig'
+  list:
+    max_results: 10
+  entities:
+    # Article:
+    #   class: App\Entity\Article
+    #   form:
+    #     fields:
+    #       - { property: 'title', type: 'text'}
+    #       - { 
+    #           property: 'body', 
+    #           type: 'fos_ckeditor', 
+    #           type_options: { 'config': { 'toolbar': 'full', 'uiColor': '#e2e2e2' } }
+    #         }
+    Product:
+      class: App\Entity\Product
+      form:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'category', type_options: { 'by_reference': true } }
+          - { property: 'imageFile', type: 'vich_image' }
+          - { property: 'summary', type: 'fos_ckeditor' }
+          - { 
+              property: 'content', 
+              type: 'fos_ckeditor', 
+              type_options: { 'config': { 'toolbar': 'full', 'uiColor': '#e2e2e2' } }
+            }
+      list:
+        fields:
+          - { property: 'image', template: 'vich_uploader_image.html.twig' }
+          - { property: 'title', type: 'text'}
+          - { property: 'category', type_options: { 'by_reference': false } }
+    Recruitment:
+      class: App\Entity\Recruitment
+      form:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'imageFile', type: 'vich_image' }
+          - { property: 'summary', type: 'fos_ckeditor' }
+          - { property: 'description', type: 'fos_ckeditor' }
+      list:
+        fields:
+          - { property: 'image', template: 'vich_uploader_image.html.twig' }
+          - { property: 'title', type: 'text'}
+          - { property: 'createdAt', type: 'datetime'}
+          - { property: 'updatedAt', type: 'datetime'}
+    Intro:
+      class: App\Entity\Intro
+      form:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'imageFile', type: 'vich_image' }
+          - { property: 'summary', type: 'fos_ckeditor' }
+          - { property: 'description', type: 'fos_ckeditor' }
+      list:
+        fields:
+          - { property: 'image', template: 'vich_uploader_image.html.twig' }
+          - { property: 'title', type: 'text'}
+    Distribution:
+      class: App\Entity\Distribution
+      form:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'imageFile', type: 'vich_image' }
+          - { property: 'summary', type: 'fos_ckeditor' }
+          - { property: 'description', type: 'fos_ckeditor' }
+      list:
+        fields:
+          - { property: 'image', template: 'vich_uploader_image.html.twig' }
+          - { property: 'title', type: 'text'}
+    ProductBlock:
+      class: App\Entity\ProductBlock
+      form:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'imageFile', type: 'vich_image' }
+      list:
+        fields:
+          - { property: 'image', template: 'vich_uploader_image.html.twig' }
+          - { property: 'title', type: 'text'}
+    Category:
+      class: App\Entity\Category
+      form:
+        fields:
+          - { property: 'name', type: 'text' }
+          - { property: 'description', type: 'text' }
+          - { property: 'products', type_options: { multiple: true, by_reference: false } }
+      list:
+        fields:
+          - { property: 'id', type: 'text'}
+          - { property: 'name', type: 'text'}
+          - { property: 'description', type: 'text' }
+          - { property: 'products', type_options: { multiple: true, by_reference: false } }
+    Menu:
+      class: App\Entity\Menu
+      form:
+        fields:
+          - { property: 'name', type: 'text' }
+          - { property: 'link', type: 'text' }
+          #- { property: 'parent', type_options: { 'by_reference': true } }
+      list:
+        fields:
+          - { property: 'name', type: 'text' }
+          - { property: 'link', type: 'text' }
+          - { property: 'parent', type_options: { 'by_reference': false } }
+    MenuFooter:
+      class: App\Entity\MenuFooter
+      form:
+        fields:
+          - { property: 'name', type: 'text' }
+          - { property: 'link', type: 'text' }
+          #- { property: 'parent', type_options: { 'by_reference': true } }
+      list:
+        fields:
+          - { property: 'name', type: 'text' }
+          - { property: 'link', type: 'text' }
+          - { property: 'parent', type_options: { 'by_reference': false } }
+    Slide:
+      class: App\Entity\Slide
+      form:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'link', type: 'text'}
+          - { property: 'description', type: 'textarea' }
+          - { property: 'imageFile', type: 'vich_image' }
+      list:
+        fields:
+          - { property: 'image', template: 'vich_uploader_image.html.twig' }
+          - { property: 'title', type: 'text'}
+          - { property: 'link', type: 'text'}
+    Contact:
+      class: App\Entity\Contact
+      disabled_actions: ['new']
+      list:
+        actions: ['show', '-edit']
+        fields:
+          - { property: 'name', type: 'text'}
+          - { property: 'email', type: 'text'}
+          - { property: 'subject', type: 'text'}
+          - { property: 'content', type: 'text'}
+          - { property: 'createdAt', type: 'datetime'}
+      show:
+        actions: ['-edit']
+    Notice:
+      class: App\Entity\Notice
+      form:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'active'}
+          - { property: 'imageFile', type: 'vich_image' }
+          - { property: 'content', type: 'fos_ckeditor' }
+      list:
+        fields:
+          - { property: 'image', template: 'vich_uploader_image.html.twig' }
+          - { property: 'title', type: 'text'}
+          - { property: 'content', type: 'text'}
+          - { property: 'active', type: 'toggle'}
+          - { property: 'createdAt', type: 'datetime'}
+    ContactBlock:
+      class: App\Entity\ContactBlock
+      disabled_actions: ['new']
+      form:
+        actions: ['-delete']
+        fields:
+          - { property: 'content', type: 'fos_ckeditor' }
+      list:
+        actions: ['edit', '-delete']
+        fields:
+          - { property: 'content', type: 'fos_ckeditor'}

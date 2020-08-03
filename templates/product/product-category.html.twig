@@ -1,0 +1,23 @@
+<div class="winco-food list-category product">
+	<div class="title">
+		<h3>Sản phẩm cùng danh mục</h3>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="row">
+			{% for p in products %}
+				<div class="col-md-4">
+					<div class="list-item">
+						<div class="row">
+							<div class="col-md-12 thumb">
+								<a href="/san-pham/chi-tiet/{{p.id}}/{{p.slug}}"><img src="{{ vich_uploader_asset(p, 'imageFile') }}"></a>
+								<a href="/san-pham/chi-tiet/{{p.id}}/{{p.slug}}">{{p.title}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

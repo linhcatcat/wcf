@@ -1,0 +1,11 @@
+{% for p in products %}
+<div class="row tab-item">
+	<div class="col-md-4">
+		<a href="/san-pham/chi-tiet/{{p.id}}/{{p.slug}}"><img src="{{ vich_uploader_asset(p, 'imageFile') }}"></a>
+	</div>
+	<div class="col-md-8 summary">
+		<h3><a href="/san-pham/chi-tiet/{{p.id}}/{{p.slug}}">{{p.title}}</a></h3>
+		{{p.summary|raw}}
+	</div>
+</div>
+{% endfor %}

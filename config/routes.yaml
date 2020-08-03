@@ -1,0 +1,11 @@
+# index:
+#    path: /
+#    controller: App\Controller\ArticleController::index
+
+easy_admin_bundle:
+  resource: '@EasyAdminBundle/Controller/EasyAdminController.php'
+  prefix: /admin
+  type: annotation
+
+elfinder:
+  resource: "@FMElfinderBundle/Resources/config/routing.yaml"

@@ -1,0 +1,36 @@
+<div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    {% for slide in slides %}
+      {% if loop.index == 1 %}
+      <li data-target="#demo" data-slide-to="{{loop.index-1}}" class="active"></li>
+      {% else %}
+      <li data-target="#demo" data-slide-to="{{loop.index-1}}"></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    {% for slide in slides %}
+      {% if loop.index == 1 %}
+        <div class="carousel-item active">
+          <a href="{{slide.link}}"><img src="uploads/images/slides/{{slide.image}}" alt="{{slide.title}}"></a>
+        </div>
+      {% else %}
+        <div class="carousel-item">
+          <a href="{{slide.link}}"><img src="uploads/images/slides/{{slide.image}}" alt="{{slide.title}}"></a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Left and right controls -->
+  <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a> -->
+</div>

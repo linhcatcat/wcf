@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block body %}
+ <h1>{{ product.title }}</h1>
+ <section>{{ product.content|raw }}</section>
+ <p>{{ product.category }}</p>
+ <p>{{ product.category.description }}</p>
+ <p>{{ product.category.createdAt.format('Y-m-d h:m') }}</p>
+ <hr>
+ <a href="/san-pham">Go Back</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}Articles GM{% endblock %}
+{% block body %}
+    {% for article in pagination %}
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.body|raw }}</p>
+        <hr />
+    {% endfor %}
+
+    <div>
+        {{ knp_pagination_render(pagination) }}
+    </div>
+    <!-- <div>
+        articles counted: {{ pagination.getTotalItemCount }}
+    </div> -->
+{% endblock %}

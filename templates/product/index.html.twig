@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles GM{% endblock %}
+
+{% block body %}
+	{% if products %}
+		<table id="product" class="table table-striped">
+			<thead>
+				<tr>
+					<th>
+						Title
+					</th>
+					<th>
+						Actions
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for product in products %}
+				<tr class="zoomIn">
+					<td>
+						{{product.title}}
+					</td>
+					<td>
+						<a href="/san-pham/{{product.id}}" class="btn btn-dark">Show</a>
+						<a href="/san-pham/edit/{{ product.id }}" class="btn btn-light">Edit</a>
+						<a href="#" class="btn btn-danger delete-article" data-id="{{product.id}}">Delete</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>No product to display</p>
+	{% endif %}
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript" src="/js/main.js"></script>
+{% endblock %}

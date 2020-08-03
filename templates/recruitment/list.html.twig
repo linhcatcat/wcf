@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tuyển dụng{% endblock %}
+
+{% block body %}
+	<div class="wrap-container">
+		<div class="container">
+			<div class="winco-food list product">
+				<div class="title">
+					<h2>Tuyển dụng</h2>
+				</div>
+				{% for r in recruitments %}
+				<div class="row">
+					<div class="col-md-8">
+						<div class="list-item">
+							<div class="row">
+								<div class="col-md-4 thumb">
+									<a href="/tuyen-dung/{{r.id}}/{{r.slug}}"><img src="{{ vich_uploader_asset(r, 'imageFile') }}"></a>
+								</div>
+								<div class="col-md-8">
+									<h3 class="title"><a href="/tuyen-dung/{{r.id}}/{{r.slug}}">{{r.title}}</a></h3>
+									{{r.summary|raw}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				<div>
+					{{ knp_pagination_render(recruitments) }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<div class="winco-food list-category product">
+	<div class="title">
+		<h3>Tin tuyển dụng khác</h3>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="row">
+			{% for r in recruitments %}
+				<div class="col-md-4">
+					<div class="list-item">
+						<div class="row">
+							<div class="col-md-12 thumb">
+								<a href="/tuyen-dung/{{r.id}}/{{r.slug}}"><img src="{{ vich_uploader_asset(r, 'imageFile') }}"></a>
+								<a href="/tuyen-dung/{{r.id}}/{{r.slug}}">{{r.title}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,51 @@
+
+nav > .nav.nav-tabs{
+
+  border: none;
+  color:#fff;
+  background:#2780E3;
+  border-radius:0;
+
+}
+nav > div a.nav-item.nav-link {
+  padding: 10px 20px;
+  border: none;
+}
+nav > div a.nav-item.nav-link.active
+{
+  border: none;
+  color:#fff;
+  background:#1565C0;
+  border-radius:0;
+}
+
+nav > div a.nav-item.nav-link.active:after
+ {
+  content: "";
+  position: relative;
+  bottom: -54px;
+  left: -30%;
+  border: 15px solid transparent;
+  border-top-color: #1565C0 ;
+}
+.tab-content{
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus
+{
+  border: none;
+  background: #1565C0;
+  color:#fff;
+  border-radius:0;
+}
+
+.product .nav-tabs a {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.product .nav-tabs .nav-item {
+  margin-bottom: 0;
+}

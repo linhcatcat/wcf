@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Danh sách sản phẩm{% endblock %}
+
+{% block body %}
+	<div class="wrap-container">
+		<div class="container">
+			<div class="winco-food list product">
+				<div class="title">
+					<h2>Sản phẩm</h2>
+				</div>
+				{% for p in products %}
+				<div class="row">
+					<div class="col-md-8">
+						<div class="list-item">
+							<div class="row">
+								<div class="col-md-4 thumb">
+									<a href="/san-pham/chi-tiet/{{p.id}}/{{p.slug}}"><img src="{{ vich_uploader_asset(p, 'imageFile') }}"></a>
+								</div>
+								<div class="col-md-8">
+									<h3 class="title"><a href="/san-pham/chi-tiet/{{p.id}}/{{p.slug}}">{{p.title}}</a></h3>
+									{{p.summary|raw}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				<div>
+					{{ knp_pagination_render(products) }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
