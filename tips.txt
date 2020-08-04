@@ -77,15 +77,18 @@ Add to file:
 	        Require all granted
 	    </Directory>
 	</VirtualHost>
-----------------------------------------
+-------------------------------------------
 Add to file:
 	/etc/hosts
 
 	127.0.1.1	wincofood.loc
-----------------------------------------
+-------------------------------------------
 Anable in file:
 	/opt/lampp/etc/httpd.conf
 
 line 487 # Virtual hosts
 lien 488 Include etc/extra/httpd-vhosts.conf
 
+
+--------------------------------------------
+sudo chmod -R 777 var/cache
