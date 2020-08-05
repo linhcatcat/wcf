@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{nutrition.title}}{% endblock %}
+
+{% block body %}
+	{% if nutrition %}
+	<div class="wrap-container">
+		<div class="container">
+			<div class="winco-food detail product">
+				<div class="title">
+					<h1>{{nutrition.title}}</h1>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						{{nutrition.content|raw}}
+						<div class="blb"></div>
+					</div>
+				</div>
+			</div>
+			{{ render(controller('App\\Controller\\NutritionController::nutritionByCategory', {categoryId: nutrition.category.id, nutritionId: nutrition.id})) }}
+		</div>
+	</div>
+	{% endif %}
+{% endblock %}

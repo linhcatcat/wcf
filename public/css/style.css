@@ -195,6 +195,10 @@ footer.wrap-container {
 .distribution .winco-food-inner .ct,
 .intro .winco-food-inner .ct {
 	background-color: #fff;
+	/*
+	box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.5);*/
 }
 
 .distribution .winco-food-inner .ct .summary,
@@ -264,4 +268,81 @@ footer {
     to {
         color: red;
     }
+}
+
+
+
+.nutrition .carousel-control-prev,
+.nutrition .carousel-control-next {
+	background-color: #2780E3;
+	opacity: 1;
+}
+
+.nutrition .carousel-control-prev:hover,
+.nutrition .carousel-control-next:hover {
+	background-color: #1565C0;
+}
+.nutrition .carousel-item h4 {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #eee;
+}
+.nutrition .carousel-item > div:hover h4,
+.nutrition .carousel-item a:hover h4 {
+	font-weight: 700;
+	text-decoration: underline;
+}
+.nutrition .carousel-item img {
+	height: 200px;
+}
+/* medium - display 2  */
+@media (min-width: 768px) {
+
+    .nutrition .carousel-inner .carousel-item-right.active,
+    .nutrition .carousel-inner .carousel-item-next {
+        transform: translateX(50%);
+    }
+
+    .nutrition .carousel-inner .carousel-item-left.active,
+    .nutrition .carousel-inner .carousel-item-prev {
+        transform: translateX(-50%);
+    }
+}
+
+/* large - display 3 */
+@media (min-width: 992px) {
+
+    .nutrition .carousel-inner .carousel-item-right.active,
+    .nutrition .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    .nutrition .carousel-inner .carousel-item-left.active,
+    .nutrition .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+}
+
+@media (max-width: 768px) {
+    .nutrition .carousel-inner .carousel-item>div {
+        display: none;
+    }
+
+    .nutrition .carousel-inner .carousel-item>div:first-child {
+        display: block;
+    }
+}
+
+.nutrition .carousel-inner .carousel-item.active,
+.nutrition .carousel-inner .carousel-item-next,
+.nutrition .carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+.nutrition .carousel-inner .carousel-item-right,
+.nutrition .carousel-inner .carousel-item-left {
+    transform: translateX(0);
 }

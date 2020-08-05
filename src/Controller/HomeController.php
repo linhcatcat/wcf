@@ -9,6 +9,7 @@
 	use App\Entity\Contact;
 	use App\Entity\Notice;
 	use App\Entity\ContactBlock;
+	use App\Entity\NutritionInformation;
 	use Symfony\Component\HttpFoundation\Response;
 	use Symfony\Component\HttpFoundation\Request;
 	use Symfony\Component\Routing\Annotation\Route;
@@ -72,12 +73,17 @@
 				->getQuery()
 				->getOneOrNullResult();
 
+			$nutritions = $em->getRepository(NutritionInformation::class)->findAll();
+
+			var_dump(count($nutritions));
+
 			return $this->render('home/home.html.twig', [
 				'intro' => $intro, 
 				'product' => $product,
 				'categories' => $categories,
 				'distribution' => $distribution,
-				'notice' => $notice
+				'notice' => $notice,
+				'nutritions' => $nutritions
 			]);
 		}
 

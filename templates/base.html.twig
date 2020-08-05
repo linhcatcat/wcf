@@ -13,8 +13,8 @@
 		{% block stylesheets %}{% endblock %}
 	</head>
 	<body class="{{app.request.get('_route')}}">
-		{#% set currentPath = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
-		{{ render(controller('App\\Controller\\MenuController::menu', {currentPath: currentPath})) }#}
+		{% set currentPath = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+		{{ render(controller('App\\Controller\\MenuController::menu', {currentPath: currentPath})) }}
 		{% if app.request.get('_route') == 'home_page' %}
 		{#{ include('inc/slide.html.twig') }#}
 		{{ render(controller('App\\Controller\\SlideController::slide')) }}

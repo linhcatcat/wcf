@@ -123,4 +123,47 @@
 		</div>
 	</div>
 	{% endif %}
+
+	<div class="wrap-container nutrition">
+		<div class="container">
+			<div class="winco-food ">
+				<div class="winco-food-inner">
+					<div class="title">
+						<h2>Thông tin dinh dưỡng</h2>
+					</div>
+					<div class="ct">
+						<div id="myCarousel" class="carousel slide w-100" data-ride="carousel">
+			                <div class="carousel-inner w-100" role="listbox">
+			                	{% for n in nutritions %}
+				                	{% if loop.index == 1 %}
+				                    <div class="carousel-item active">
+				                        <div class="col-lg-3 col-md-6">
+				                            <a href="/thong-tin-dinh-duong/chi-tiet/{{n.id}}/{{n.title}}" title="{{n.title}}"><img src="{{ vich_uploader_asset(n, 'imageFile') }}"></a>
+				                            <a href="/thong-tin-dinh-duong/chi-tiet/{{n.id}}/{{n.title}}" title="{{n.title}}"><h4>{{(n.title|u.truncate(30, '...'))}}</h4></a>
+				                        </div>
+				                    </div>
+				                    {% else %}
+				                    <div class="carousel-item">
+				                        <div class="col-lg-3 col-md-6">
+				                            <a href="/thong-tin-dinh-duong/chi-tiet/{{n.id}}/{{n.title}}" title="{{n.title}}"><img src="{{ vich_uploader_asset(n, 'imageFile') }}"></a>
+				                            <a href="/thong-tin-dinh-duong/chi-tiet/{{n.id}}/{{n.title}}" title="{{n.title}}"><h4>{{(n.title|u.truncate(28, '...'))}}</h4></a>
+				                        </div>
+				                    </div>
+				                    {% endif %}
+			                    {% endfor %}
+			                </div>
+			                <a class="carousel-control-prev w-auto" href="#myCarousel" role="button" data-slide="prev">
+			                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			                    <span class="sr-only">Previous</span>
+			                </a>
+			                <a class="carousel-control-next w-auto" href="#myCarousel" role="button" data-slide="next">
+			                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			                    <span class="sr-only">Next</span>
+			                </a>
+			            </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
