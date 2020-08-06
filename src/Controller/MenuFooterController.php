@@ -26,9 +26,10 @@
 
 		public function menuFooterSub(Request $req) {
 			$parentId = $req->get('parentId');
+			$col = $req->get('col');
 			$em = $this->getDoctrine()->getManager();
 			$subMenus = $em->getRepository(MenuFooter::class)->getSubMenu($parentId);
-			return $this->render('inc/menu_footer_sub.html.twig', ['subMenus' => $subMenus]);
+			return $this->render('inc/menu_footer_sub.html.twig', ['subMenus' => $subMenus, 'col' => $col]);
 		}
 
 		public function adminMenuFooter() {

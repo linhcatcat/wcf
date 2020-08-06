@@ -58,7 +58,7 @@ class ProductController extends AbstractController
         $pagination = $paginator->paginate(
             $products,
             $page,
-            3
+            5
         );
 
         $category = $this->getDoctrine()->getRepository(Category::class)->find($id);

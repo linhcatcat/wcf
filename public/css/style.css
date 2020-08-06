@@ -207,6 +207,42 @@ footer.wrap-container {
 	padding-right: 30px;
 }
 
+.sidebar-right {
+	background-color: #EFF0F0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 25px 0 25px 0;
+	-moz-border-radius: 25px 0 25px 0;
+	-webkit-border-radius: 25px 0 25px 0;
+}
+
+.sidebar-right .sidebar-title h4 {
+	font-weight: 700;
+	color: #2780E3;
+	border-bottom: 1px solid #2780E3;
+}
+
+.sidebar-right .sidebar-ct > div:first {
+	margin-top: 0;
+}
+
+.sidebar-right .sidebar-ct > div {
+	margin-top: 15px;
+}
+
+.sidebar-right .sidebar-ct .item-left {
+	padding-right: 0;
+}
+
+.sidebar-right .sidebar-ct .item-right a {
+	font-weight: 700;
+}
+
+.sidebar-right .sidebar-ct img {
+	max-width: 100%;
+	height: auto;
+}
+
 footer {
 	font-weight: 700;
 	padding-top: 30px;

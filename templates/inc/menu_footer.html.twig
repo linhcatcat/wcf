@@ -7,7 +7,11 @@
 					<div class="winco-title">
 						<h4>{{m.name}}</h4>
 					</div>
-					{{ render(controller('App\\Controller\\MenuFooterController::menuFooterSub', {parentId: m.id})) }}
+					{% if loop.index == 1 %}
+						{{ render(controller('App\\Controller\\MenuFooterController::menuFooterSub', {parentId: m.id, col: 'col-md-6'})) }}
+					{% else %}
+						{{ render(controller('App\\Controller\\MenuFooterController::menuFooterSub', {parentId: m.id, col: ''})) }}
+					{% endif %}
 				</div>
 				{% endfor %}
 				<div class="col-md-3">

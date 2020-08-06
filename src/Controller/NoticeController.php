@@ -36,6 +36,17 @@ class NoticeController extends AbstractController
         if (!$notice) {
             throw new NotFoundHttpException('Sorry not existing!');
         }
-        return $this->render('notice/detail.html.twig', array('notice' => $notice));
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $others = $qb->select('n')
+            ->from(Notice::class,'n')
+            ->andWhere('n.id != :id')
+            ->setParameter('id', $notice->getId())
+            ->orderBy('n.createdAt', 'DESC')
+            ->setFirstResult(0)
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+        return $this->render('notice/detail.html.twig', array('notice' => $notice, 'others' => $others));
     }
 }

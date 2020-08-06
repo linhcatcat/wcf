@@ -75,8 +75,6 @@
 
 			$nutritions = $em->getRepository(NutritionInformation::class)->findAll();
 
-			var_dump(count($nutritions));
-
 			return $this->render('home/home.html.twig', [
 				'intro' => $intro, 
 				'product' => $product,

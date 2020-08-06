@@ -7,13 +7,30 @@
 	<div class="wrap-container">
 		<div class="container">
 			<div class="winco-food detail">
-				<div class="title">
-					<h1>{{notice.title}}</h1>
-				</div>
 				<div class="row">
 					<div class="col-md-8">
+						<div class="title">
+							<h1>{{notice.title}}</h1>
+						</div>
 						{{notice.content|raw}}
 						<div class="blb d-none"></div>
+					</div>
+					<div class="col-md-4 sidebar-right">
+						<div class="sidebar-title">
+							<h4>Thông báo khác</h4>
+						</div>
+						<div class="sidebar-ct">
+							{% for n in others %}
+							<div class="row">
+								<div class="col-md-4 item-left">
+									<a href="/thong-bao/chi-tiet/{{n.id}}/{{n.slug}}"><img src="{{ vich_uploader_asset(n, 'imageFile') }}"></a>
+								</div>
+								<div class="col-md-8 item-right">
+									<a href="/thong-bao/chi-tiet/{{n.id}}/{{n.slug}}">{{n.title}}</a>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
 					</div>
 				</div>
 			</div>
