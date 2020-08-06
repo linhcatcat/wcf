@@ -7,6 +7,7 @@
 	use Symfony\Component\HttpFoundation\Request;
 	use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 	use Symfony\Component\Routing\Annotation\Route;
+	use function Symfony\Component\String\u;
 	
 	class MenuFooterController extends AbstractController {
 		public function menuFooter(Request $req) {
@@ -32,18 +33,19 @@
 				->getQuery()
 				->getOneOrNullResult();
 
-			$youtube = $qb->select('y')
-				->from(Youtube::class,'y')
-				->andWhere('y.link LIKE :link')
-				->setParameter('link', $currentPath.'%')
-				->setFirstResult(0)
-				->setMaxResults(1)
-				->getQuery()
-				->getOneOrNullResult();
+			$youtube = null;
+
+			$youtubes = $em->getRepository(Youtube::class)->findAll();
+			foreach ($youtubes as $y) {
+    			if(u($currentPath)->containsAny(u($y->getLink())->split("*"))) {
+    				$youtube = $y;
+    			}
+			}
+
+			
 
 			return $this->render('inc/menu_footer.html.twig', [
-				'menus' => $menus, 
-				'currentPath' => $currentPath,
+				'menus' => $menus,
 				'youtube' => $youtube,
 				'default' => $default
 			]);
