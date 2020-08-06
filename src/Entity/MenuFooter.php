@@ -28,6 +28,11 @@ class MenuFooter
     private $link;
 
     /**
+     * @ORM\Column(type="string", length=10, options={"default": "_self"})
+     */
+    private $target;
+
+    /**
      * @ORM\ManyToOne(targetEntity="MenuFooter", inversedBy="menus")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
@@ -72,6 +77,18 @@ class MenuFooter
     public function setLink(string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getTarget(): ?string
+    {
+        return $this->target;
+    }
+
+    public function setTarget(string $target): self
+    {
+        $this->target = $target;
 
         return $this;
     }

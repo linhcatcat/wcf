@@ -14,12 +14,16 @@
 					{% endif %}
 				</div>
 				{% endfor %}
-				<div class="col-md-3">
+				<div class="col-md-3 youtube">
 					<div class="winco-title">
 						<h4>Kênh WincoFood</h4>
 					</div>
 					<ul>
-						<iframe width="360" class="kenh-winco-food" src="https://www.youtube.com/embed/VHhqeDEUgFY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						{% if youtube %}
+							<iframe width="360" class="kenh-winco-food" src="{{youtube.embed}}?autoplay=1&controls=0&loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						{% else %}
+							<iframe width="360" class="kenh-winco-food" src="{{default.embed}}?autoplay=1&controls=0&loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						{% endif %}
 					</ul>
 				</div>
 			</div>

@@ -12,7 +12,7 @@ easy_admin:
       - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
       - '@VichUploader/Form/fields.html.twig'
   list:
-    max_results: 10
+    max_results: 20
   entities:
     # Article:
     #   class: App\Entity\Article
@@ -121,11 +121,13 @@ easy_admin:
         fields:
           - { property: 'name', type: 'text' }
           - { property: 'link', type: 'text' }
+          - { property: 'target', type: 'text', default: '_self' }
           #- { property: 'parent', type_options: { 'by_reference': true } }
       list:
         fields:
           - { property: 'name', type: 'text' }
           - { property: 'link', type: 'text' }
+          - { property: 'target', type: 'text' }
           - { property: 'parent', type_options: { 'by_reference': false } }
     Slide:
       class: App\Entity\Slide
@@ -210,3 +212,18 @@ easy_admin:
           - { property: 'image', template: 'vich_uploader_image.html.twig' }
           - { property: 'title', type: 'text'}
           - { property: 'category', type_options: { 'by_reference': false } }
+
+    Youtube:
+      class: App\Entity\Youtube
+      form:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'link', type: 'text'}
+          - { property: 'active', label: 'Default'}
+          - { property: 'embed', type: 'textarea'}
+      list:
+        fields:
+          - { property: 'title', type: 'text'}
+          - { property: 'link', type: 'text'}
+          - { property: 'active', type: 'toggle', label: 'Default'}
+          - { property: 'embed', type: 'textarea'}

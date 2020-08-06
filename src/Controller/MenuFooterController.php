@@ -2,6 +2,7 @@
 	namespace App\Controller;
 
 	use App\Entity\MenuFooter;
+	use App\Entity\Youtube;
 	use Symfony\Component\HttpFoundation\Response;
 	use Symfony\Component\HttpFoundation\Request;
 	use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -9,6 +10,7 @@
 	
 	class MenuFooterController extends AbstractController {
 		public function menuFooter(Request $req) {
+			$currentPath = $req->get('currentPath');
 			$em = $this->getDoctrine()->getManager();
 			$qb = $em->createQueryBuilder();
 
@@ -21,7 +23,30 @@
 				->getQuery()
 				->getResult();
 
-			return $this->render('inc/menu_footer.html.twig', ['menus' => $menus]);
+			$default = $qb->select('d')
+				->from(Youtube::class,'d')
+				->andWhere('d.active = :active')
+				->setParameter('active', true)
+				->setFirstResult(0)
+				->setMaxResults(1)
+				->getQuery()
+				->getOneOrNullResult();
+
+			$youtube = $qb->select('y')
+				->from(Youtube::class,'y')
+				->andWhere('y.link LIKE :link')
+				->setParameter('link', $currentPath.'%')
+				->setFirstResult(0)
+				->setMaxResults(1)
+				->getQuery()
+				->getOneOrNullResult();
+
+			return $this->render('inc/menu_footer.html.twig', [
+				'menus' => $menus, 
+				'currentPath' => $currentPath,
+				'youtube' => $youtube,
+				'default' => $default
+			]);
 		}
 
 		public function menuFooterSub(Request $req) {

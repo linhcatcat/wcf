@@ -1,13 +1,13 @@
 {% if col %}
 <ul class="row">
 	{% for sm in subMenus %}
-	<li class="{{col}}"><a href="{{sm.link}}" class="hvr-underline-from-center">{{sm.name}}</a></li>
+	<li class="{{col}}"><a href="{{sm.link}}" target="{{sm.target}}" class="hvr-underline-from-center">{{sm.name}}</a></li>
 	{% endfor %}
 </ul>
 {% else %}
 <ul>
 	{% for sm in subMenus %}
-	<li><a href="{{sm.link}}" class="hvr-underline-from-center">{{sm.name}}</a></li>
+	<li><a href="{{sm.link}}" target="{{sm.target}}" class="hvr-underline-from-center">{{sm.name}}</a></li>
 	{% endfor %}
 </ul>
 {% endif %}
