@@ -75,9 +75,21 @@ class ProductController extends AbstractController
         if (!$product) {
             //return $this->redirectToRoute('_preview_error', ['code'=>404]);
             //throw $this->createNotFoundException('Sản phẩm không tồn tại');
-            throw new NotFoundHttpException('Sorry not existing!');
+            throw new NotFoundHttpException('Sản phẩm không tồn tại!');
         }
-        return $this->render('product/detail.html.twig', array('product' => $product));
+
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $others = $qb->select('n')
+            ->from(Product::class,'n')
+            ->andWhere('n.category != :category')
+            ->setParameter('category', $product->getCategory())
+            ->setFirstResult(0)
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+
+        return $this->render('product/detail.html.twig', array('product' => $product, 'others' => $others));
     }
 
     public function productByCategory(Request $req) {

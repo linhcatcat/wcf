@@ -7,17 +7,35 @@
 	<div class="wrap-container">
 		<div class="container">
 			<div class="winco-food detail product">
-				<div class="title">
-					<h1>{{product.title}}</h1>
-				</div>
 				<div class="row">
 					<div class="col-md-8">
+						<div class="title">
+							<h1>{{product.title}}</h1>
+						</div>
 						{{product.content|raw}}
-						<div class="blb"></div>
+						<div class="blb mb15"></div>
+						{{ render(controller('App\\Controller\\ProductController::productByCategory', {categoryId: product.category.id, productId: product.id})) }}
+					</div>
+					<div class="col-md-4 sidebar-right">
+						<div class="sidebar-title">
+							<h4>Sản phẩm khác danh mục</h4>
+						</div>
+						<div class="sidebar-ct">
+							{% for p in others %}
+							<div class="row">
+								<div class="col-md-4 item-left">
+									<a href="/san-pham/chi-tiet/{{p.id}}/{{p.slug}}"><img src="{{ vich_uploader_asset(p, 'imageFile') }}"></a>
+								</div>
+								<div class="col-md-8 item-right">
+									<a href="/san-pham/chi-tiet/{{p.id}}/{{p.slug}}">{{p.title}}</a>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
 					</div>
 				</div>
 			</div>
-			{{ render(controller('App\\Controller\\ProductController::productByCategory', {categoryId: product.category.id, productId: product.id})) }}
+			
 		</div>
 	</div>
 	{% endif %}

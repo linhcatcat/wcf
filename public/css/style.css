@@ -4,6 +4,10 @@
 	}
 }
 
+.mb15 {
+	margin-bottom: 15px;
+}
+
 .thumb img {
 	max-width: 100%;
 	width: 100%;

@@ -64,9 +64,20 @@ class NutritionController extends AbstractController
         if (!$nutrition) {
             //return $this->redirectToRoute('_preview_error', ['code'=>404]);
             //throw $this->createNotFoundException('Sản phẩm không tồn tại');
-            throw new NotFoundHttpException('Sorry not existing!');
+            throw new NotFoundHttpException('Thông tin không tồn tại!');
         }
-        return $this->render('nutrition/detail.html.twig', array('nutrition' => $nutrition));
+
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $others = $qb->select('n')
+            ->from(NutritionInformation::class,'n')
+            ->andWhere('n.category != :category')
+            ->setParameter('category', $nutrition->getCategory())
+            ->setFirstResult(0)
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+        return $this->render('nutrition/detail.html.twig', array('nutrition' => $nutrition, 'others' => $others));
     }
 
     public function nutritionByCategory(Request $req) {
